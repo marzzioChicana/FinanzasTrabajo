@@ -11,11 +11,11 @@ export class AuthService {
   constructor(private router: Router) { }
 
   setUser(user: Users) {
-    localStorage.setItem(this.currentUserKey, JSON.stringify(user)); // Almacenar el usuario en localStorage
+    sessionStorage.setItem(this.currentUserKey, JSON.stringify(user)); // Almacenar el usuario en localStorage
   }
 
   getUser(): Users | null {
-    const userJson = localStorage.getItem(this.currentUserKey);
+    const userJson = sessionStorage.getItem(this.currentUserKey);
     if (userJson) {
       return JSON.parse(userJson) as Users;
     }
@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem(this.currentUserKey); // Eliminar el usuario del localStorage
+    sessionStorage.removeItem(this.currentUserKey); // Eliminar el usuario del localStorage
     // Otros pasos necesarios para el logout, como redireccionar o limpiar datos adicionales
     this.router.navigate(['/login']);
   }
