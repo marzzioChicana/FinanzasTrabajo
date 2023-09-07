@@ -36,13 +36,13 @@ export class DataService {
 
   getList(): Observable<Data[]> {
     return this.http
-      .get<Data[]>(`${this.baseURL}/data.json`)
+      .get<Data[]>(`${this.baseURL}/data`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   createItem(item: any): Observable<Data> {
     return this.http
-      .post<Data>(`${this.baseURL}/data.json`, JSON.stringify(item), this.httpOptions)
+      .post<Data>(`${this.baseURL}/data`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 }

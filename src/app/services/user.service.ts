@@ -36,13 +36,13 @@ export class UserService {
 
   getList(): Observable<Users[]> {
     return this.http
-      .get<Users[]>(`${this.baseURL}/users.json`)
+      .get<Users[]>(`${this.baseURL}/users`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   createItem(item: any): Observable<Users> {
     return this.http
-      .post<Users>(`${this.baseURL}/users.json`, JSON.stringify(item), this.httpOptions)
+      .post<Users>(`${this.baseURL}/users`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 }

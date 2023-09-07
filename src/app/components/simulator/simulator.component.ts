@@ -39,6 +39,7 @@ export class SimulatorComponent{
   cuotaInicialInvalid: boolean = false;
   numeroCuotasInvalid: boolean = false;
   precioViviendaInvalid: boolean = false;
+  periodoGraciaInvalid: boolean = false;
   mostrarTabla: boolean = false;
   periodoGraciaTotal: boolean = false;
   periodoGraciaParcial: boolean = false;
@@ -170,12 +171,17 @@ export class SimulatorComponent{
   }
   
   validarTasaEfectiva(): void {
-    this.tasaEfectivaInvalid = this.tasaEfectivaAnual < 8 || this.tasaEfectivaAnual > 13;
+    this.tasaEfectivaInvalid = this.tasaEfectivaAnual < 6.6 || this.tasaEfectivaAnual > 13.9;
     this.resetArrays();
   }
 
   validarCuotaInicial(): void {
     this.cuotaInicialInvalid = this.cuotaInicial < 0.075 * this.precioVivienda;
+    this.resetArrays();
+  }
+  
+  validarPeriodoGracia(): void {
+    this.periodoGraciaInvalid = this.periodoGraciaNumerico < 0 || this.periodoGraciaNumerico > 6;
     this.resetArrays();
   }
 
@@ -379,7 +385,7 @@ export class SimulatorComponent{
   }
 
   Operacion() {
-    if (!this.precioViviendaInvalid && !this.tasaEfectivaInvalid && !this.cuotaInicialInvalid && !this.numeroCuotasInvalid) {            
+    if (!this.precioViviendaInvalid && !this.tasaEfectivaInvalid && !this.cuotaInicialInvalid && !this.numeroCuotasInvalid && !this.periodoGraciaInvalid) {            
       
       this.calcularSaldoFinal();
       
@@ -387,8 +393,6 @@ export class SimulatorComponent{
       this.mostrarTabla = true;
       console.log(this.periodoGraciaParcial);
       console.log(this.periodoGraciaTotal);
-
-      
 
       const monedaN = this.ontenerMoneda();
       const precioViviendaN = Number(this.precioVivienda.toFixed(2));

@@ -30,7 +30,7 @@
     }
   ],
   "data": [
-        {
+    {
       "moneda": "Soles",
       "precioVivienda": 64200,
       "cuotaInicial": 4815,
@@ -68,6 +68,45 @@
       "cuota": 1296.62,
       "userId": 2,
       "id": 3
+    },
+    {
+      "moneda": "Soles",
+      "precioVivienda": 64200,
+      "cuotaInicial": 4815,
+      "tasaEfectiva": 8,
+      "numeroCuotas": 60,
+      "periodoGracia": 0,
+      "periodoGraciaParcial": 0,
+      "periodoGraciaTotal": 0,
+      "cuota": 590.34,
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "moneda": "Soles",
+      "precioVivienda": 64200,
+      "cuotaInicial": 4815,
+      "tasaEfectiva": 8,
+      "numeroCuotas": 60,
+      "periodoGracia": 4,
+      "periodoGraciaParcial": 0,
+      "periodoGraciaTotal": 4,
+      "cuota": 639.49,
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "moneda": "Soles",
+      "precioVivienda": 64200,
+      "cuotaInicial": 4815,
+      "tasaEfectiva": 8,
+      "numeroCuotas": 60,
+      "periodoGracia": 5,
+      "periodoGraciaParcial": 5,
+      "periodoGraciaTotal": 0,
+      "cuota": 632.81,
+      "userId": 2,
+      "id": 6
     }
   ]
 }
